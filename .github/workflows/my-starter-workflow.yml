@@ -1,7 +1,8 @@
 name: My Starter Workflow
 
 on:
-  workflow_dispatch:
+  workflow_dispatch:   # keep manual trigger if you want
+  push:                # add push so a commit will also run the workflow automatically
 
 jobs:
   build:
@@ -14,8 +15,8 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy to your project.
-          
- call-reusable-workflow:
-  uses: ./.github/workflows/reusable-workflow.yml
-  with:
-    node: 14
+
+  call-reusable-workflow:
+    uses: ./.github/workflows/reusable-workflow.yml
+    with:
+      node: 14
